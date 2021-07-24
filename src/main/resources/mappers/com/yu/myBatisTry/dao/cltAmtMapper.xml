@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yu.myBatisTry.dao.cltAmtDao">
+    <select id="selectById" resultMap="CltAmtResultMap">
+        select * from CLT_AMT_T
+        where CLT_NBR = #{cltNbr}
+    </select>
+    
+    <resultMap id="CltAmtResultMap" type="com.yu.myBatisTry.domain.CltAmt">
+        <id property="cltNbr" column="CLT_NBR"/>
+        <result property="cltNam" column="CLT_NAM"/>
+        <result property="crdNbr" column="CRD_NBR"/>
+        <result property="curAmt" column="CUR_AMT"/>
+    </resultMap>
+</mapper>
