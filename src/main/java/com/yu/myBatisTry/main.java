@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class main {
     public static void main(String[] args) {
@@ -21,7 +22,11 @@ public class main {
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         SqlSessionFactory factory = sqlSessionFactoryBuilder.build(resourceAsStream);
         SqlSession sqlSession = factory.openSession();
-        CltAmt cltAmt = sqlSession.selectOne("com.yu.myBatisTry.dao.cltAmtDao.selectById");
-        System.out.println(cltAmt);
+        //CltAmt cltAmt = sqlSession.selectOne("com.yu.myBatisTry.dao.cltAmtDao.selectById");
+        List<CltAmt> cltAmts = sqlSession.selectList("com.yu.myBatisTry.dao.cltAmtDao.selectAll");
+        for(CltAmt cltAmt : cltAmts) {
+            System.out.println(cltAmt);
+        }
+        sqlSession.close();
     }
 }

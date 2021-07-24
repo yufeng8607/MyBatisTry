@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface cltAmtDao {
 
-     public List<CltAmt> selectAll();
+    public List<CltAmt> selectAll();
 
     public CltAmt selectById();
 

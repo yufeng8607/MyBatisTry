@@ -8,6 +8,10 @@
         select * from CLT_AMT_T
         where CLT_NBR = #{cltNbr}
     </select>
+
+    <select id="selectAll" resultMap="CltAmtResultMap">
+        select * from CLT_AMT_T
+    </select>
     
     <resultMap id="CltAmtResultMap" type="com.yu.myBatisTry.domain.CltAmt">
         <id property="cltNbr" column="CLT_NBR"/>
